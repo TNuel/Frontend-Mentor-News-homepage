@@ -66,6 +66,7 @@ h1, h2, h3, h4, h5, h6 {
 body {
     font-family: var(--font-family);
     background-color: var(--off-white);
+    padding: 10px;
 }
 
 header {
@@ -181,6 +182,51 @@ img {
     display: flex;
 }
 
+.card-img {
+    width: 10rem;
+    height: 12rem;
+    object-fit: cover;
+}
+
+.card-text-area {
+    background-color: rgb(194, 191, 191);
+}
+
+.card-number {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    color: var(--grayish-blue);
+}
+
+.card-header {
+    columns: black;
+    font-size:  16px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+    color: var(--grayish-blue);
+}
+
+.news-item {
+    margin: 80px 0;
+}
+
+.div-b-header {
+    color: var(--soft-orange);
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.news-item h3 {
+    color: white;
+    font-size: 20px;
+}
+
 /* Responsive typography and layout adjustments */
 @media (min-width: 375px) {
     body {
@@ -242,10 +288,9 @@ img {
     color: var(--soft-red);
 }
 
-.card-img {
-    width: 14rem;
-    height: 16rem;
-}
+#nav-links.hidden {
+        display: flex;
+    }
 
 a:hover {
   color: hsl(5, 85%, 63%);
@@ -296,7 +341,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    padding: 20px 0;
+    /* padding: 20px 0; */
   }
 
   .div-g {
@@ -348,21 +393,19 @@ a:hover {
                 </div>
             </div>
             <div class="div-b">
-                <div class="">
-                    <h2>New</h2>
-                    <div class="news-item">
-                        <h3>Hydrogen VS Electric Cars</h3>
-                        <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
-                      </div>
-                      <div class="news-item">
-                        <h3>The Downsides of AI Artistry</h3>
-                        <p>What are the possible adverse effects of on-demand AI image generation?</p>
-                      </div>
-                      <div class="news-item">
-                        <h3>Is VC Funding Drying Up?</h3>
-                        <p>Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
-                      </div>
-                </div>
+                <h2 class="div-b-header">New</h2>
+                <div class="news-item">
+                    <h3>Hydrogen VS Electric Cars</h3>
+                    <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+                  </div>
+                  <div class="news-item">
+                    <h3>The Downsides of AI Artistry</h3>
+                    <p>What are the possible adverse effects of on-demand AI image generation?</p>
+                  </div>
+                  <div class="news-item">
+                    <h3>Is VC Funding Drying Up?</h3>
+                    <p>Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+                  </div>
             </div>
             <div class="div-c">
                 <div class="feature-header">
@@ -375,28 +418,29 @@ a:hover {
                             <a href="#" class="read-more">READ MORE</a>
                         </div>
             </div>
+            <!-- the three cards below -->
             <div class="div-e">
                 <img class="card-img" src="./assets/images/image-retro-pcs.jpg" alt="retro pcs image">
-                <div>
-                    <h1>01</h1>
-                    <h2>Reviving Retro PCs</h2>
-                    <p>What happens when old PCs are given modern upgrades?</p>
+                <div class="">
+                    <h1 class="card-number">01</h1>
+                    <h2 class="card-header">Reviving Retro PCs</h2>
+                    <p class="card-text">What happens when old PCs are given modern upgrades?</p>
                 </div>
             </div>
             <div class="div-f">
                 <img class="card-img" src="./assets/images/image-top-laptops.jpg" alt="top laptops image">
-                <div>
-                    <h1>02</h1>
-                    <h2>Top 10 Laptops of 2022</h2>
-                    <p>Our best picks for various needs and budgets.</p>
+                <div class="">
+                    <h1 class="card-number">02</h1>
+                    <h2 class="card-header">Top 10 Laptops of 2022</h2>
+                    <p class="card-text">Our best picks for various needs and budgets.</p>
                 </div>
             </div>
             <div class="div-g">
                 <img class="card-img" src="./assets/images/image-gaming-growth.jpg" alt="gaming growth image">
-                <div>
-                    <h1>03</h1>
-                    <h2>The Growth of Gaming</h2>
-                    <p>How the pandemic has sparked fresh opportunities.</p>
+                <div class="">
+                    <h1 class="card-number">03</h1>
+                    <h2 class="card-header">The Growth of Gaming</h2>
+                    <p class="card-text">How the pandemic has sparked fresh opportunities.</p>
                 </div>
             </div>
           </div>

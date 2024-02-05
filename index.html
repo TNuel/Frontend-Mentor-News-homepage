@@ -1,470 +1,676 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | News homepage</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-    /* Importing the Inter font from Google Fonts */
-@import url('https://fonts.google.com/specimen/Inter');
+    <title>Frontend Mentor | News homepage</title>
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
 
-/* Base styles */
-:root {
-    /* Color Variables */
-    --soft-orange: hsl(35, 77%, 62%);
-    --soft-red: hsl(5, 85%, 63%);
-    --off-white: hsl(36, 100%, 99%);
-    --grayish-blue: hsl(233, 8%, 79%);
-    --dark-grayish-blue: hsl(236, 13%, 42%);
-    --very-dark-blue: hsl(240, 100%, 5%);
+      /* Importing the Inter font from Google Fonts */
+      @import url("https://fonts.google.com/specimen/Inter");
 
-    /* Typography Variables */
-    --font-size-paragraph: 15px;
-    --font-family: 'Inter', sans-serif;
-}
+      /* Base styles */
+      :root {
+        /* Color Variables */
+        --soft-orange: hsl(35, 77%, 62%);
+        --soft-red: hsl(5, 85%, 63%);
+        --off-white: hsl(36, 100%, 99%);
+        --grayish-blue: hsl(233, 8%, 79%);
+        --dark-grayish-blue: hsl(236, 13%, 42%);
+        --very-dark-blue: hsl(240, 100%, 5%);
 
-body {
-    font-family: var(--font-family);
-    font-size: var(--font-size-paragraph);
-    color: var(--very-dark-blue); /* Default text color */
-    background-color: var(--off-white); /* Default background */
-}
+        /* Typography Variables */
+        --font-size-paragraph: 15px;
+        --font-family: "Inter", sans-serif;
+      }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 700; /* Assuming you want all headings to be bold */
-}
+      body {
+        font-family: var(--font-family);
+        font-size: var(--font-size-paragraph);
+        color: var(--very-dark-blue); /* Default text color */
+        background-color: var(--off-white); /* Default background */
+      }
 
-/* Example of applying colors */
-.primary-bg {
-    background-color: var(--soft-orange);
-}
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700; /* Assuming you want all headings to be bold */
+      }
 
-.secondary-bg {
-    background-color: var(--soft-red);
-}
+      /* Example of applying colors */
+      .primary-bg {
+        background-color: var(--soft-orange);
+      }
 
-.neutral-bg {
-    background-color: var(--grayish-blue);
-}
+      .secondary-bg {
+        background-color: var(--soft-red);
+      }
 
-.text-dark {
-    color: var(--very-dark-blue);
-}
+      .neutral-bg {
+        background-color: var(--grayish-blue);
+      }
 
-.text-light {
-    color: var(--off-white);
-}
+      .text-dark {
+        color: var(--very-dark-blue);
+      }
 
-body {
-    font-family: var(--font-family);
-    background-color: var(--off-white);
-    padding: 10px;
-}
+      .text-light {
+        color: var(--off-white);
+      }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+      body {
+        font-family: var(--font-family);
+        background-color: var(--off-white);
+        padding: 10px;
+      }
 
-#navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* background-color: var(--grayish-blue); */
-    padding: 1rem;
-}
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+      }
 
-#nav-links {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    gap: 2rem;
-}
+      #navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* background-color: var(--grayish-blue); */
+        padding: 1rem;
+      }
 
-#nav-links.hidden {
-    display: flex;
-}
+      #nav-links {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        gap: 2rem;
+      }
 
-#nav-links a {
-    text-decoration: none;
-    color: var(--very-dark-blue);
-    padding: 0.5rem;
-    display: flex;
-    transition: color 0.3s ease; /* Optional: adds a smooth transition for the color change */
-}
+      #nav-links.hidden {
+        display: flex;
+      }
 
-#menu-icon, #close-icon {
-    display: none;
-    cursor: pointer;
-}
+      #nav-links a {
+        text-decoration: none;
+        color: var(--very-dark-blue);
+        padding: 0.5rem;
+        display: flex;
+        transition: color 0.3s ease; /* Optional: adds a smooth transition for the color change */
+      }
 
-/* Base styles */
-/* .container {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-} */
-
-img {
-    object-fit: cover;
-    width: 100%;
-}
-
-.read-more {
-  padding: 8px 32px;
-  background-color: hsl(5, 85%, 63%);
-  color: #fff;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  line-height: 24px;
-  letter-spacing: 2px;
-  color: var(--off-white);
-  font-weight: 600;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.feature {
-  /* background-color: #f0f0f0; */
-  display: flex;
-  justify-content: space-between;
-  padding: 0 10px;
-  text-align: left;
-  width: 100%;
-}
-
-.feature-header {
-    /* padding: 0px; */
-    color: black;
-    font-size: 72px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    line-height: 72px;
-}
-
-.feature-body p {
-  /* margin-bottom: 20px; */
-  width: 100%;
-  color: var(--grayish-blue);
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  line-height: 24px;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 1fr; /* One column */
-  grid-gap: 30px; /* Adjust the gap as needed */
-}
-
-.div-a, .div-b, .div-c, .div-d, .div-e, .div-f, .div-g {
-  width: 100%; /* Ensure each div takes the full width of the grid column */
-  height: 100%;
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
-
-.large-img {
-    display: none;
-}
-
-.mobile-img {
-    display: flex;
-}
-
-.card-img {
-    width: 10rem;
-    height: 12rem;
-    object-fit: cover;
-}
-
-.card-text-area {
-    background-color: rgb(194, 191, 191);
-}
-
-.card-number {
-    font-size: 30px;
-    font-weight: bold;
-    text-align: left;
-    color: var(--grayish-blue);
-}
-
-.card-header {
-    columns: black;
-    font-size:  16px;
-    font-weight: bold;
-}
-
-.card-text {
-    font-size: 14px;
-    font-weight: normal;
-    text-align: left;
-    color: var(--grayish-blue);
-}
-
-.news-item {
-    margin: 80px 0;
-}
-
-.div-b-header {
-    color: var(--soft-orange);
-    font-size: 40px;
-    font-weight: bold;
-}
-
-.news-item h3 {
-    color: white;
-    font-size: 20px;
-}
-
-/* Responsive typography and layout adjustments */
-@media (min-width: 375px) {
-    body {
-        font-size: 15px; /* Mobile font size */
-    }
-    #menu-icon, #close-icon {
+      /* #nav-links li a {
         display: block;
-    }
+        padding: 20px;
+        text-decoration: none;
+        } */
 
-    #nav-links {
-        display: flex;
-        /* flex-direction: column; */
-        width: 100%;
-    }
-
-    #nav-links > *:not(:last-child) {
-        margin-right: 40px; /* Adds margin to all items except the last one */
-    }
-
-    #nav-links.active {
-        display: flex;
+      #nav-links li a:hover,
+      #nav-links li a.active {
         color: hsl(5, 85%, 63%);
-    }
-    #nav-links.hidden {
+      }
+
+      #menu-icon,
+      #close-icon {
         display: none;
-    }
-    
-    .div-e {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px 0;
-  }
+        cursor: pointer;
+      }
 
-  .div-f {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px 0;
-  }
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
 
-  .div-g {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px 0;
-  }
-}
-
-@media (min-width: 1440px) {
-    body {
-        font-size: 16px; /* Slightly larger font size for desktop */
-        padding: 0px 128px;
-    }
-    #menu-icon, #close-icon {
-        display: none;
-    }
-    #nav-links a:hover [data-active="true"] {
-    color: var(--soft-red);
-}
-
-#nav-links.hidden {
+      .read-more {
+        padding: 8px 32px;
+        background-color: hsl(5, 85%, 63%);
+        color: #fff;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        line-height: 24px;
+        letter-spacing: 2px;
+        color: var(--off-white);
+        font-weight: 600;
+      }
+      .feature {
+        /* background-color: #f0f0f0; */
         display: flex;
-    }
+        justify-content: space-between;
+        padding: 0 10px;
+        text-align: left;
+        width: 100%;
+      }
 
-a:hover {
-  color: hsl(5, 85%, 63%);
-}
+      .feature-body p {
+        /* margin-bottom: 20px; */
+        width: 100%;
+        color: var(--grayish-blue);
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        line-height: 24px;
+      }
 
-.container {
-    grid-template-columns: repeat(3, 1fr); /* Three columns */
-    grid-template-rows: auto auto auto; /* Three rows, auto height */
-  }
+      .container {
+        display: grid;
+        grid-template-columns: 1fr; /* One column */
+        grid-gap: 30px; /* Adjust the gap as needed */
+      }
 
-  .div-a {
-    grid-column: 1 / span 2; /* Span first two columns */
-    grid-row: 1; /* First row */
-}
+      .div-a,
+      .div-b,
+      .div-c,
+      .div-d,
+      .div-e,
+      .div-f,
+      .div-g {
+        width: 100%; /* Ensure each div takes the full width of the grid column */
+        height: 100%;
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+      }
 
-.div-b {
-    grid-column: 3; /* Third column */
-    grid-row: 1 / span 2; /* Span two rows */
-    background-color: black;
-    color: white;
-    padding: 32px;
-  }
+      .large-img {
+        display: none;
+      }
 
-  .div-c {
-    grid-column: 1; /* First column */
-    grid-row: 2; /* Second row */
-  }
+      .mobile-img {
+        display: flex;
+      }
 
-  .div-d {
-    grid-column: 2; /* Second column */
-    grid-row: 2; /* Second row */
-    padding: 10px;
-    position: relative;
-  }
+      .card-img {
+        width: 10rem;
+        height: 12rem;
+        object-fit: cover;
+      }
 
-  .div-e {
-    grid-column: 1; /* First column */
-    grid-row: 3; /* Third row */
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px 0;
-  }
+      .card-text-area {
+        background-color: rgb(194, 191, 191);
+      }
 
-  .div-f {
-    grid-column: 2; /* Second column */
-    grid-row: 3; /* Third row */
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    /* padding: 20px 0; */
-  }
+      .card-number {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: left;
+        color: var(--grayish-blue);
+      }
 
-  .div-g {
-    grid-column: 3; /* Third column */
-    grid-row: 3; /* Third row */
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px 0;
-  }
+      .card-header {
+        columns: black;
+        font-size: 16px;
+        font-weight: bold;
+      }
 
-  .large-img {
-    display: flex;
-  }
-  .mobile-img {
-    display: none;
-  }
-}
+      .card-text {
+        font-size: 14px;
+        font-weight: normal;
+        text-align: left;
+        color: var(--dark-grayish-blue);
+      }
 
-  </style>
-</head>
-<body>
+      .news-item {
+        padding: 40px 0;
+      }
+
+      .news-item:first-child {
+        padding-top: 0;
+      }
+
+      .news-item:last-child {
+        padding-bottom: 0;
+      }
+
+      .news-item:not(:last-child) {
+        border-bottom: 2px solid var(--dark-grayish-blue); /* Adds a bottom border to all but the last .news-item */
+      }
+
+      .div-b-header {
+        color: var(--soft-orange);
+        font-size: 40px;
+        font-weight: bold;
+      }
+
+      .news-item h3 {
+        color: white;
+        font-size: 20px;
+      }
+
+      .news-item p {
+        color: var(--dark-grayish-blue);
+        font-size: 18px;
+      }
+
+      @media (min-width: 375px) {
+        body {
+          font-size: 15px;
+        }
+
+        #nav-links.hidden {
+          transform: translateX(100%);
+          transition: transform 0.3s ease-out, visibility 0s linear 0.3s;
+          visibility: hidden;
+        }
+
+        #nav-links:not(.hidden) {
+          transform: translateX(0);
+          transition: transform 0.3s ease-out;
+          visibility: visible;
+        }
+
+        .div-b {
+          grid-column: 1; /* Third column */
+          grid-row: 4; /* Span two rows */
+        }
+
+        .div-c {
+          grid-column: 1; /* First column */
+          grid-row: 2; /* Second row */
+        }
+
+        .div-d {
+          grid-column: 1; /* Second column */
+          grid-row: 3; /* Second row */
+          margin-bottom: 40px;
+        }
+
+        .read-more {
+          padding: auto;
+        }
+
+        #navbar {
+            width: 100vw;
+        }
+
+        #nav-links {
+          padding: 0 -40px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: left;
+          background-color: white;
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 75%;
+          height: 100vh;
+          z-index: 1000;
+          transform: translateX(100%);
+          transition: transform 0.3s ease-out;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 800;
+            transition: opacity 0.3s ease-out;
+        }
+
+
+        #menu-icon {
+          display: block;
+          padding: 0;
+          margin: 0;
+        }
+
+        #nav-links {
+          display: flex;
+          /* flex-direction: column; */
+          width: 100%;
+        }
+
+        #nav-links > *:not(:last-child) {
+          margin-right: 40px;
+        }
+
+        #nav-links.active {
+          display: flex;
+          color: hsl(5, 85%, 63%);
+        }
+        #nav-links.hidden {
+          display: none;
+        }
+
+        .div-e {
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          padding: 20px 0;
+        }
+
+        .div-b {
+          background-color: black;
+          color: white;
+          padding: 20px;
+        }
+
+        .feature-header {
+          font-size: 52px;
+          letter-spacing: 0;
+          line-height: 60px;
+          color: black;
+          font-weight: 900;
+        }
+
+        br {
+          display: none;
+        }
+
+        .div-f {
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          padding: 20px 0;
+        }
+
+        .div-g {
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          padding: 20px 0;
+        }
+      }
+
+      @media (min-width: 1440px) {
+        body {
+          font-size: 16px;
+          padding: 0px 128px;
+        }
+        #menu-icon,
+        #close-icon {
+          display: none;
+        }
+        #nav-link a:hover [data-active="true"] {
+          color: var(--soft-red);
+        }
+
+        #nav-links.hidden {
+          display: flex;
+        }
+
+        a:hover {
+          color: hsl(5, 85%, 63%);
+        }
+
+        #nav-link:active {
+          color: hsl(5, 85%, 63%);
+        }
+
+        .container {
+          grid-template-columns: repeat(3, 1fr); /* Three columns */
+          grid-template-rows: auto auto auto; /* Three rows, auto height */
+        }
+
+        .div-a {
+          grid-column: 1 / span 2; /* Span first two columns */
+          grid-row: 1; /* First row */
+        }
+
+        .div-b {
+          grid-column: 3; /* Third column */
+          grid-row: 1 / span 2; /* Span two rows */
+          background-color: black;
+          color: white;
+          padding: 40px;
+        }
+
+        .read-more {
+          position: absolute;
+          bottom: 0px;
+          left: 10px;
+        }
+
+        .feature-header {
+          /* padding: 0px; */
+          color: black;
+          font-size: 68px;
+          font-weight: 900;
+          letter-spacing: 1px;
+          line-height: 72px;
+        }
+
+        br {
+          display: flex;
+        }
+
+        .div-c {
+          grid-column: 1; /* First column */
+          grid-row: 2; /* Second row */
+        }
+
+        .div-d {
+          grid-column: 2; /* Second column */
+          grid-row: 2; /* Second row */
+          padding: 10px;
+          position: relative;
+        }
+
+        .div-e {
+          grid-column: 1; /* First column */
+          grid-row: 3; /* Third row */
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          padding: 20px 0;
+        }
+
+        .div-f {
+          grid-column: 2; /* Second column */
+          grid-row: 3; /* Third row */
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          /* padding: 20px 0; */
+        }
+
+        .div-g {
+          grid-column: 3; /* Third column */
+          grid-row: 3; /* Third row */
+          display: flex;
+          justify-content: space-between;
+          gap: 20px;
+          padding: 20px 0;
+        }
+
+        .large-img {
+          display: flex;
+        }
+        .mobile-img {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <header>
-        <div class="logo">
-            <img src="./assets/images/logo.svg" alt="Logo">
+      <div class="logo">
+        <img src="./assets/images/logo.svg" alt="Logo" />
+      </div>
+      <nav id="navbar">
+        <div>
+          <ul id="nav-links" class="hidden">
+            <li>
+              <a href="#" id="nav-link" class="active" data-active="true"
+                >Home</a
+              >
+            </li>
+            <li><a href="#" id="nav-link">New</a></li>
+            <li><a href="#" id="nav-link">Popular</a></li>
+            <li><a href="#" id="nav-link">Trending</a></li>
+            <li><a href="#" id="nav-link">Categories</a></li>
+          </ul>
         </div>
-        <nav id="navbar">
-            <div>
-                <ul id="nav-links" class="hidden">
-                    <li><a href="#" class="nav-link" data-active="true">Home</a></li>
-                    <li><a href="#" class="nav-link">New</a></li>
-                    <li><a href="#" class="nav-link">Popular</a></li>
-                    <li><a href="#" class="nav-link">Trending</a></li>
-                    <li><a href="#" class="nav-link">Categories</a></li>
-                </ul>
-            </div>
-            <div>
-                <img id="menu-icon" src="./assets/images/icon-menu.svg" alt="menu icon">
-                <img id="close-icon" src="./assets/images/icon-menu-close.svg" alt="close menu icon">
-            </div>
-        </nav>
-      </header>
-      <main>
-        <div class="container">
-            <div class="div-a">
-                <div class="">
-                    <img class="large-img" src="./assets/images/image-web-3-desktop.jpg" alt="gaming image">
-                    <img class="mobile-img" src="./assets/images/image-web-3-mobile.jpg" alt="gaming image">
-                </div>
-            </div>
-            <div class="div-b">
-                <h2 class="div-b-header">New</h2>
-                <div class="news-item">
-                    <h3>Hydrogen VS Electric Cars</h3>
-                    <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
-                  </div>
-                  <div class="news-item">
-                    <h3>The Downsides of AI Artistry</h3>
-                    <p>What are the possible adverse effects of on-demand AI image generation?</p>
-                  </div>
-                  <div class="news-item">
-                    <h3>Is VC Funding Drying Up?</h3>
-                    <p>Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
-                  </div>
-            </div>
-            <div class="div-c">
-                <div class="feature-header">
-                    The Bright Future of<br>Web 3.0?
-                </div>
-            </div>
-            <div class="div-d">
-                <div class="feature-body">
-                            <p>We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise?</p>
-                            <a href="#" class="read-more">READ MORE</a>
-                        </div>
-            </div>
-            <!-- the three cards below -->
-            <div class="div-e">
-                <img class="card-img" src="./assets/images/image-retro-pcs.jpg" alt="retro pcs image">
-                <div class="">
-                    <h1 class="card-number">01</h1>
-                    <h2 class="card-header">Reviving Retro PCs</h2>
-                    <p class="card-text">What happens when old PCs are given modern upgrades?</p>
-                </div>
-            </div>
-            <div class="div-f">
-                <img class="card-img" src="./assets/images/image-top-laptops.jpg" alt="top laptops image">
-                <div class="">
-                    <h1 class="card-number">02</h1>
-                    <h2 class="card-header">Top 10 Laptops of 2022</h2>
-                    <p class="card-text">Our best picks for various needs and budgets.</p>
-                </div>
-            </div>
-            <div class="div-g">
-                <img class="card-img" src="./assets/images/image-gaming-growth.jpg" alt="gaming growth image">
-                <div class="">
-                    <h1 class="card-number">03</h1>
-                    <h2 class="card-header">The Growth of Gaming</h2>
-                    <p class="card-text">How the pandemic has sparked fresh opportunities.</p>
-                </div>
-            </div>
+        <div class="overlay"></div>
+        <div>
+          <img
+            id="menu-icon"
+            src="./assets/images/icon-menu.svg"
+            alt="menu icon"
+          />
+          <img
+            id="close-icon"
+            src="./assets/images/icon-menu-close.svg"
+            alt="close menu icon"
+          />
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <div class="div-a">
+          <div class="">
+            <img
+              class="large-img"
+              src="./assets/images/image-web-3-desktop.jpg"
+              alt="gaming image"
+            />
+            <img
+              class="mobile-img"
+              src="./assets/images/image-web-3-mobile.jpg"
+              alt="gaming image"
+            />
           </div>
-      </main>
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Emmanuel Tolani</a>.
-  </div>
-  <script src="script.js">
-  function toggleMenu() {
-    const navLinks = document.getElementById('nav-links');
-    const closeIcon = document.getElementById('close-icon');
-    const menuIcon = document.getElementById('menu-icon');
-    
-    if (navLinks.classList.contains('hidden')) {
-        navLinks.classList.remove('hidden');
-        closeIcon.classList.remove('hidden');
-        menuIcon.classList.add('hidden');
-    } else {
-        navLinks.classList.add('hidden');
-        closeIcon.classList.add('hidden');
-        menuIcon.classList.remove('hidden');
-    }
-}
-</script>
-</body>
+        </div>
+        <div class="div-b">
+          <div class="div-b-header">New</div>
+          <div class="news-item">
+            <h3>Hydrogen VS Electric Cars</h3>
+            <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+          </div>
+          <div class="news-item">
+            <h3>The Downsides of AI Artistry</h3>
+            <p>
+              What are the possible adverse effects of on-demand AI image
+              generation?
+            </p>
+          </div>
+          <div class="news-item">
+            <h3>Is VC Funding Drying Up?</h3>
+            <p>
+              Private funding by VC firms is down 50% YOY. We take a look at
+              what that means.
+            </p>
+          </div>
+        </div>
+        <div class="div-c">
+          <div class="feature-header">
+            The Bright Future of<br />
+            Web 3.0?
+          </div>
+        </div>
+        <div class="div-d">
+          <div class="feature-body">
+            <p>
+              We dive into the next evolution of the web that claims to put the
+              power of the platforms back into the hands of the people. But is
+              it really fulfilling its promise?
+            </p>
+            <a href="#" class="read-more">READ MORE</a>
+          </div>
+        </div>
+        <!-- the three cards below -->
+        <div class="div-e">
+          <img
+            class="card-img"
+            src="./assets/images/image-retro-pcs.jpg"
+            alt="retro pcs image"
+          />
+          <div class="">
+            <h1 class="card-number">01</h1>
+            <h2 class="card-header">Reviving Retro PCs</h2>
+            <p class="card-text">
+              What happens when old PCs are given modern upgrades?
+            </p>
+          </div>
+        </div>
+        <div class="div-f">
+          <img
+            class="card-img"
+            src="./assets/images/image-top-laptops.jpg"
+            alt="top laptops image"
+          />
+          <div class="">
+            <h1 class="card-number">02</h1>
+            <h2 class="card-header">Top 10 Laptops of 2022</h2>
+            <p class="card-text">
+              Our best picks for various needs and budgets.
+            </p>
+          </div>
+        </div>
+        <div class="div-g">
+          <img
+            class="card-img"
+            src="./assets/images/image-gaming-growth.jpg"
+            alt="gaming growth image"
+          />
+          <div class="">
+            <h1 class="card-number">03</h1>
+            <h2 class="card-header">The Growth of Gaming</h2>
+            <p class="card-text">
+              How the pandemic has sparked fresh opportunities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Emmanuel Tolani</a>.
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var menuIcon = document.getElementById("menu-icon");
+        var closeIcon = document.getElementById("close-icon");
+        var navLinks = document.getElementById("nav-links");
+        var overlay = document.querySelector('.overlay');
+
+        menuIcon.addEventListener("click", function () {
+          console.log("open icon with open function");
+          navLinks.classList.remove("hidden");
+          overlay.style.display = 'block';
+          closeIcon.style.display = "block";
+          menuIcon.style.display = "none";
+        });
+
+        closeIcon.addEventListener("click", function () {
+          console.log("close icon with close function");
+          navLinks.classList.add("hidden");
+          closeIcon.style.display = "none";
+          overlay.style.display = 'none';
+          menuIcon.style.display = "block";
+        });
+
+        overlay.addEventListener('click', function () {
+            navLinks.style.transform = 'translateX(-100%)';
+            overlay.style.opacity = '0';
+            setTimeout(() => overlay.style.display = 'none', 300);
+        });
+      });
+    </script>
+  </body>
 </html>

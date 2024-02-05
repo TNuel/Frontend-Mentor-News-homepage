@@ -114,7 +114,7 @@
         color: var(--very-dark-blue);
         padding: 0.5rem;
         display: flex;
-        transition: color 0.3s ease; /* Optional: adds a smooth transition for the color change */
+        transition: color 0.3s ease;
       }
 
       /* #nav-links li a {
@@ -172,8 +172,8 @@
 
       .container {
         display: grid;
-        grid-template-columns: 1fr; /* One column */
-        grid-gap: 30px; /* Adjust the gap as needed */
+        grid-template-columns: 1fr;
+        grid-gap: 30px;
       }
 
       .div-a,
@@ -183,9 +183,9 @@
       .div-e,
       .div-f,
       .div-g {
-        width: 100%; /* Ensure each div takes the full width of the grid column */
+        width: 100%;
         height: 100%;
-        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        box-sizing: border-box;
       }
 
       .large-img {
@@ -263,7 +263,7 @@
           font-size: 15px;
         }
 
-        #nav-links.hidden {
+        /* #nav-links.hidden {
           transform: translateX(100%);
           transition: transform 0.3s ease-out, visibility 0s linear 0.3s;
           visibility: hidden;
@@ -273,7 +273,7 @@
           transform: translateX(0);
           transition: transform 0.3s ease-out;
           visibility: visible;
-        }
+        } */
 
         .div-b {
           grid-column: 1; /* Third column */
@@ -295,11 +295,7 @@
           padding: auto;
         }
 
-        #navbar {
-            width: 100vw;
-        }
-
-        #nav-links {
+        /* #nav-links {
           padding: 0 -40px;
           margin: 0 auto;
           display: flex;
@@ -315,9 +311,9 @@
           z-index: 1000;
           transform: translateX(100%);
           transition: transform 0.3s ease-out;
-        }
+        } */
 
-        .overlay {
+        /* .overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -327,7 +323,7 @@
             background: rgba(0, 0, 0, 0.5);
             z-index: 800;
             transition: opacity 0.3s ease-out;
-        }
+        } */
 
 
         #menu-icon {
@@ -399,6 +395,12 @@
           font-size: 16px;
           padding: 0px 128px;
         }
+
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+        }
+
         #menu-icon,
         #close-icon {
           display: none;
@@ -420,18 +422,18 @@
         }
 
         .container {
-          grid-template-columns: repeat(3, 1fr); /* Three columns */
-          grid-template-rows: auto auto auto; /* Three rows, auto height */
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: auto auto auto;
         }
 
         .div-a {
-          grid-column: 1 / span 2; /* Span first two columns */
-          grid-row: 1; /* First row */
+          grid-column: 1 / span 2;
+          grid-row: 1;
         }
 
         .div-b {
-          grid-column: 3; /* Third column */
-          grid-row: 1 / span 2; /* Span two rows */
+          grid-column: 3;
+          grid-row: 1 / span 2;
           background-color: black;
           color: white;
           padding: 40px;
@@ -457,20 +459,20 @@
         }
 
         .div-c {
-          grid-column: 1; /* First column */
-          grid-row: 2; /* Second row */
+          grid-column: 1;
+          grid-row: 2;
         }
 
         .div-d {
-          grid-column: 2; /* Second column */
-          grid-row: 2; /* Second row */
+          grid-column: 2;
+          grid-row: 2;
           padding: 10px;
           position: relative;
         }
 
         .div-e {
-          grid-column: 1; /* First column */
-          grid-row: 3; /* Third row */
+          grid-column: 1;
+          grid-row: 3;
           display: flex;
           justify-content: space-between;
           gap: 20px;
@@ -478,8 +480,8 @@
         }
 
         .div-f {
-          grid-column: 2; /* Second column */
-          grid-row: 3; /* Third row */
+          grid-column: 2;
+          grid-row: 3;
           display: flex;
           justify-content: space-between;
           gap: 20px;
@@ -487,8 +489,8 @@
         }
 
         .div-g {
-          grid-column: 3; /* Third column */
-          grid-row: 3; /* Third row */
+          grid-column: 3;
+          grid-row: 3;
           display: flex;
           justify-content: space-between;
           gap: 20px;
